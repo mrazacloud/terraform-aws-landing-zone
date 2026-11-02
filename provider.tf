@@ -8,23 +8,15 @@ terraform {
   }
 }
 
-# Primary Region Configuration with Offline Mock Parameters
+# Primary Region Configuration
 provider "aws" {
-  region                      = "us-east-1"
-  access_key                  = "mock_access_key"
-  secret_key                  = "mock_secret_key"
-  skip_credentials_validation = true
-  skip_requesting_account_id  = true
-  skip_metadata_api_check     = true
+  region = "us-east-1"
+  # Standard deployment parameters—values are fed securely via environmental secrets
 }
 
-# Secondary Disaster Recovery Region Configuration with Offline Mock Parameters
+# Secondary Disaster Recovery Region Configuration via Provider Aliasing
 provider "aws" {
-  alias                       = "dr_region"
-  region                      = "us-west-2"
-  access_key                  = "mock_access_key"
-  secret_key                  = "mock_secret_key"
-  skip_credentials_validation = true
-  skip_requesting_account_id  = true
-  skip_metadata_api_check     = true
+  alias  = "dr_region"
+  region = "us-west-2"
 }
+
