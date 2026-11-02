@@ -1,0 +1,5 @@
+# Ignore local Terraform cache and downloaded binary provider executables
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
